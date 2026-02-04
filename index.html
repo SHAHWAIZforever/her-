@@ -17,8 +17,9 @@ body {
   margin: 0;
   min-height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: flex-start;
+  padding-top: env(safe-area-inset-top);
   text-align: center;
   overflow: hidden;
   color: #fff;
@@ -34,94 +35,89 @@ body {
 }
 
 .container {
-  padding: 40px;
-  max-width: 500px;
-  width: 90%;
-  z-index: 2;
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
 }
 
 h1 {
-  font-size: 2.3rem;
-  margin-bottom: 30px;
+  font-size: 1.9rem;
+  margin-bottom: 18px;
   font-weight: 600;
   animation: floatText 3s ease-in-out infinite;
 }
 
 @keyframes floatText {
   0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-8px); }
 }
 
 button {
-  padding: 16px 34px;
-  font-size: 1.1rem;
+  padding: 14px 30px;
+  font-size: 1.05rem;
   border: none;
   border-radius: 40px;
   background: white;
   color: #ff5f7e;
   cursor: pointer;
-  box-shadow: 0 0 30px rgba(255,255,255,0.7);
+  box-shadow: 0 0 28px rgba(255,255,255,0.8);
   animation: pulse 2s infinite;
-  transition: transform 0.3s ease;
-}
-
-button:hover {
-  transform: scale(1.15) rotate(-2deg);
+  margin-bottom: 10px;
 }
 
 @keyframes pulse {
-  0% { box-shadow: 0 0 20px rgba(255,255,255,0.6); }
-  50% { box-shadow: 0 0 45px rgba(255,255,255,1); }
-  100% { box-shadow: 0 0 20px rgba(255,255,255,0.6); }
+  0% { box-shadow: 0 0 18px rgba(255,255,255,0.6); }
+  50% { box-shadow: 0 0 40px rgba(255,255,255,1); }
+  100% { box-shadow: 0 0 18px rgba(255,255,255,0.6); }
 }
 
 .image-wrapper {
   display: none;
-  margin-top: 35px;
-  animation: reveal 2s ease forwards;
+  margin-top: 12px;
+  animation: reveal 1.8s ease forwards;
 }
 
 @keyframes reveal {
   0% {
     opacity: 0;
-    transform: scale(0.6) rotate(-10deg);
-    filter: blur(15px);
+    transform: translateY(70px) scale(0.96);
+    filter: blur(14px);
   }
   100% {
     opacity: 1;
-    transform: scale(1) rotate(0);
+    transform: translateY(0) scale(1);
     filter: blur(0);
   }
 }
 
 .image-wrapper img {
   width: 100%;
-  max-width: 350px;
-  border-radius: 25px;
-  box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+  max-width: 100%;
+  border-radius: 26px;
+  box-shadow: 0 28px 55px rgba(0,0,0,0.45);
   animation: heartbeat 3s infinite;
 }
 
 @keyframes heartbeat {
   0% { transform: scale(1); }
-  25% { transform: scale(1.03); }
+  25% { transform: scale(1.025); }
   40% { transform: scale(1); }
-  60% { transform: scale(1.04); }
+  60% { transform: scale(1.035); }
   100% { transform: scale(1); }
 }
 
 .caption {
-  margin-top: 18px;
-  font-size: 1.15rem;
+  margin-top: 14px;
+  font-size: 1.05rem;
   opacity: 0;
-  animation: fadeUp 2s ease forwards;
-  animation-delay: 1.2s;
+  animation: fadeUp 1.5s ease forwards;
+  animation-delay: 1s;
 }
 
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(18px);
   }
   to {
     opacity: 1;
@@ -133,9 +129,9 @@ button:hover {
 .heart {
   position: absolute;
   bottom: -20px;
-  font-size: 20px;
+  font-size: 18px;
   animation: floatUp linear forwards;
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 @keyframes floatUp {
@@ -155,6 +151,7 @@ button:hover {
 
 <div class="container">
   <h1>Click to see the most beautiful person in the world 💖</h1>
+
   <button id="revealBtn">Click Me</button>
 
   <div class="image-wrapper" id="imageWrapper">
@@ -183,7 +180,7 @@ function spawnHearts() {
     document.body.appendChild(heart);
 
     setTimeout(() => heart.remove(), 7000);
-  }, 300);
+  }, 320);
 }
 </script>
 
