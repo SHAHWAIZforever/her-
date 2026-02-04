@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Most Beautiful Person</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      text-align: center;
+      color: #fff;
+    }
+
+    .container {
+      padding: 40px;
+      max-width: 500px;
+      width: 90%;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 30px;
+      font-weight: 600;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 30px;
+      background: #ffffff;
+      color: #ee6a7c;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+    }
+
+    .image-wrapper {
+      display: none;
+      margin-top: 30px;
+      animation: fadeIn 1.5s ease forwards;
+    }
+
+    .image-wrapper img {
+      width: 100%;
+      max-width: 350px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+
+    .caption {
+      margin-top: 15px;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Click to see the most beautiful person in the world 💖</h1>
+
+    <button id="revealBtn">Click Me</button>
+
+    <div class="image-wrapper" id="imageWrapper">
+      <!-- Replace "her.jpg" with her photo -->
+      <img src="her.jpg" alt="The most beautiful person in the world" />
+      <div class="caption">Still can’t believe you’re real ✨</div>
+    </div>
+  </div>
+
+  <script>
+    const btn = document.getElementById("revealBtn");
+    const image = document.getElementById("imageWrapper");
+
+    btn.addEventListener("click", () => {
+      btn.style.display = "none";
+      image.style.display = "block";
+    });
+  </script>
+</body>
+</html>
