@@ -52,6 +52,12 @@ h1 {
   50% { transform: translateY(-8px); }
 }
 
+/* Shrink effect for text after click */
+.shrink-text {
+  transform: scale(0.8);
+  transition: transform 0.6s ease;
+}
+
 button {
   padding: 14px 30px;
   font-size: 1.05rem;
@@ -144,6 +150,14 @@ button {
     opacity: 0;
   }
 }
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 600px) {
+  h1 { font-size: 1.75rem; }
+  button { padding: 12px 26px; font-size: 1rem; }
+  .image-wrapper img { max-width: 92vw; border-radius: 22px; }
+  .caption { font-size: 1rem; }
+}
 </style>
 </head>
 
@@ -163,10 +177,15 @@ button {
 <script>
 const btn = document.getElementById("revealBtn");
 const image = document.getElementById("imageWrapper");
+const title = document.querySelector("h1");
 
 btn.addEventListener("click", () => {
   btn.style.display = "none";
   image.style.display = "block";
+
+  // Shrink the text smoothly
+  title.classList.add("shrink-text");
+
   spawnHearts();
 });
 
